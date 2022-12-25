@@ -1,4 +1,5 @@
 use bevy::prelude::*;
+use bevy_input::prelude::*;
 
 #[derive(Component)]
 struct Person;
