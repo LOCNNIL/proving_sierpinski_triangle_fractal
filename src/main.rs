@@ -22,6 +22,7 @@ fn hello_world() {
     println!("hello world!");
 }
 
+// Quick note: systems run in parallel by default whenever possible
 fn main() {
     App::new()
         .add_startup_system(add_people)
