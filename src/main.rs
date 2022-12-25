@@ -36,10 +36,6 @@ fn greet_people(
     }
 }
 
-fn hello_world() {
-    println!("hello world!");
-}
-
 // Quick note: systems run in parallel by default whenever possible
 fn main() {
     App::new()
