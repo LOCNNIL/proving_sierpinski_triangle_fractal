@@ -14,5 +14,5 @@ opt-level = 1
 opt-level = 3
 
 [dependencies]
-bevy = { version = "0.9.1", features = ["dynamic"] } # TODO: Remember to take-off "dynamic" on release compilation
-bevy_input = "0.9.1"
+bevy = { version = "0.7", features = ["dynamic"] } # TODO: Remember to take-off "dynamic" on release compilation
+bevy_input = "0.7"
