@@ -37,10 +37,22 @@ fn greet_people(
     }
 }
 
+
+fn setup(mut commands: Commands) {
+    // Cretes a red point at position (0,0)
+    commands.spawn(SpriteComponents {
+        material: Material::colored(Color::rgb(1.0, 0.0, 0.0)),
+        transform: Transform::from_translation(Vec3::new(0.0, 0.0, 0.0)),
+        ..Default::default()
+    });
+}
+
 // Quick note: systems run in parallel by default whenever possible
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
         .add_plugin(HelloPlugin)
+        .add_startup_system(setup.system())
         .run();
 }
+
