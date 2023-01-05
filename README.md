@@ -1,8 +1,7 @@
 # proving_sierpinski_triangle_fractal
 This project is about to proving/test Sierpiński triangle fractal with Rust graphical frameworks 
 
-<img src=https://upload.wikimedia.org/wikipedia/commons/a/ad/Random_Sierpinski_Triangle_animation.gif alt="Sierpinski Triangle Fractal">
-
+<img src=https://upload.wikimedia.org/wikipedia/commons/a/ad/Random_Sierpinski_Triangle_animation.gif alt="Sierpinski Triangle Fractal" width="250" height="250">
 
 ## Installing dependencies
 
