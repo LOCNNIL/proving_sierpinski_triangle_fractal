@@ -1,8 +1,10 @@
-use bevy::prelude::*;
+use bevy::{prelude::*, transform};
+use bevy_prototype_lyon::prelude::*;
 
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins.set(ImagePlugin::default_nearest())) // prevents blurry sprites
+        .add_plugin(ShapePlugin)
         .add_startup_system(setup)
         .add_system(animate_sprite)
         .run();
@@ -38,6 +40,12 @@ fn setup(
     let texture_atlas =
         TextureAtlas::from_grid(texture_handle, Vec2::new(24.0, 24.0), 7, 1, None, None);
     let texture_atlas_handle = texture_atlases.add(texture_atlas);
+    let shape = shapes::RegularPolygon{
+        sides: 6,
+        feature: shapes::RegularPolygonFeature::Radius(200.0),
+        ..shapes::RegularPolygon::default()
+    };
+
     commands.spawn(Camera2dBundle::default());
     commands.spawn((
         SpriteSheetBundle {
@@ -46,6 +54,13 @@ fn setup(
             ..default()
         },
         AnimationTimer(Timer::from_seconds(0.1, TimerMode::Repeating)),
+    ));
+    commands.spawn(GeometryBuilder::build_as(
+        &shape,
+        DrawMode::Outlined { fill_mode: FillMode::color(Color::BLUE), 
+        outline_mode: StrokeMode::new(Color::BLACK, 10.0),
+        },
+        Transform::from_translation(Vec3::new(0.0, 20.0, 0.0))
     ));
 }
 
