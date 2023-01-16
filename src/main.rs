@@ -43,7 +43,7 @@ fn scroll_system(
     mut scroll_state: ResMut<ScrollState>,
     mut queries: Query<(Entity, &mut Transform)>,
 ) {
-    for event in mouse_motion_events.iter() {
+    for event in mouse_motion_events.into_inner() {
         // Check if mouse scroll goes up or down
         if event.delta.y > 0.0 {
             // Add values to entity position
