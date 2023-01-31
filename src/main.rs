@@ -1,4 +1,4 @@
-use bevy::{prelude::*, input::mouse::MouseMotion};
+use bevy::{prelude::*, input::mouse::{MouseMotion, MouseScrollUnit}};
 use bevy_prototype_lyon::prelude::*;
 
 fn main() {
@@ -43,7 +43,7 @@ fn scroll_system(
     mut scroll_state: ResMut<ScrollState>,
     mut queries: Query<(Entity, &mut Transform)>,
 ) {
-    for event in mouse_motion_events.into_inner() {
+    for event in mouse_motion_events.iter_current_update_events() {
         // Check if mouse scroll goes up or down
         if event.delta.y > 0.0 {
             // Add values to entity position
